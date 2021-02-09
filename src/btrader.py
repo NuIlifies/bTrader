@@ -12,16 +12,21 @@ class gui:
         
         master.columnconfigure(0, weight=1)
 
+        master.rowconfigure(0, weight=1)
+        master.rowconfigure(1, weight=1)
+
         # Intended to act as a pseudo-console for output
         self.output = Listbox(master)
         self.output.grid(row=0, column=0, columnspan=2,sticky="nsew")
         # Get user input for commands
         self.inputBox = Entry(master)
-        self.inputBox.grid(row=1, column=0, sticky="nsew")
+        self.inputBox.grid(row=1, column=0, sticky="ew")
     
         self.submit = Button(master, text="→", command=self.processCommand)
-        self.submit.grid(row=1, column=1)
+        self.submit.grid(row=1, column=1, sticky="ew")
 
+        #Bind enter key to yield same results as clicking submit button
+        master.bind('<Return>', self.processCommand)
 
         self.out("bTrader successfully loaded.", 1)
 
@@ -33,8 +38,10 @@ class gui:
         else:
             self.output.insert(END, ">" + str(text))
 
+        self.output.yview(END)
 
-    def processCommand(self):
+
+    def processCommand(self, *event): #*event parameter added since master.bind also passes thru keystroke event to method
         # Gets contents of inputBox, stores to variable txt then clears box
         txt = self.inputBox.get()
 
@@ -44,9 +51,11 @@ class gui:
             if txt not in cmdList:
                 self.out("Invalid command! Type 'help' for a list of commands", 1)
         
+
 if __name__=="__main__":
     root = Tk()
     root.geometry("450x350")
+    root.title("bTrader")
     ui = gui(root)
     root.mainloop()
     
