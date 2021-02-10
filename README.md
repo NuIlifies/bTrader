@@ -1,4 +1,5 @@
 # bTrader
+"A Bloomberg terminal but worse"
 
 A handy application for fetching information regarding Bitcoin using the Binance API.
 
