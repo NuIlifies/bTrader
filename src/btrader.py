@@ -2,7 +2,7 @@ from binance.client import Client
 from tkinter import *
 
 cmdList = {
-    "foo":"self.out('bar', 1)"  
+    "config":"self.configure()"  
 }
 
 class gui:
@@ -43,17 +43,32 @@ class gui:
     def processCommand(self, *event): #*event parameter added since master.bind also passes thru keystroke event to method
         # Gets contents of inputBox, stores to variable txt then clears box
         txt = self.inputBox.get()
+        
+        #separates the command and puts each word given in an individual list index
+        command = txt.split()
 
         if not txt == "":
             self.inputBox.delete(0, 'end')
             self.out(txt, 0)
 
-            #If the command does not exist in the dicitonary
-            if txt not in cmdList:
+            self.args = []
+
+            #make arguments separate list
+            if len(command) > 1:
+                for i in range(len(command)):
+                    self.args.append(command[i])
+                
+                print(self.args)
+
+
+            #If the first item in the list (the main command) exists in the dictionary
+            if command[0] not in cmdList:
                 self.out("Invalid command! Type 'help' for a list of commands", 1)
             else:
-            #if it does, eval command
-                eval(cmdList[txt])
+                exec(cmdList[command[0]])
+
+    def configure(self):
+        pass
 
         
 
