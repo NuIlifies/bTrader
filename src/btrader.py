@@ -2,9 +2,8 @@ from binance.client import Client
 from tkinter import *
 
 cmdList = {
-    "foo":"bar"
+    "foo":"self.out('bar', 1)"  
 }
-
 
 class gui:
 
@@ -48,11 +47,18 @@ class gui:
         if not txt == "":
             self.inputBox.delete(0, 'end')
             self.out(txt, 0)
+
+            #If the command does not exist in the dicitonary
             if txt not in cmdList:
                 self.out("Invalid command! Type 'help' for a list of commands", 1)
+            else:
+            #if it does, eval command
+                eval(cmdList[txt])
+
         
 
 if __name__=="__main__":
+    #main window params
     root = Tk()
     root.geometry("450x350")
     root.title("bTrader")

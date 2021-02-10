@@ -1,6 +1,10 @@
 # bTrader
 
-A handy application for trading in Bitcoin using the Binance API.
+A handy application for fetching information regarding Bitcoin using the Binance API.
+
+# Disclaimer
+
+I am not responsible for any losses you may incur as a result of using this program. 
 
 
 # License
