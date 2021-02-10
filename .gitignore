@@ -1,0 +1,5 @@
+# venv
+/env
+
+# vsc config
+/.vscode
