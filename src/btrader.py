@@ -1,4 +1,5 @@
 from binance.client import Client
+from configparser import ConfigParser
 from tkinter import *
 
 cmdList = {
@@ -69,6 +70,7 @@ class gui:
 
     def configure(self):
         pass
+        
 
         
 
