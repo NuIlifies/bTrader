@@ -1,5 +1,5 @@
 # bTrader
-![Python Version](https://img.shields.io/static/v1?label=Python&message=3.9.1&color=informational)
+![Python Version](https://img.shields.io/static/v1?label=Python&message=3.9.1&color=informational) ![Binance Version](https://img.shields.io/static/v1?label=Binance&message=0.2.0&color=green)
 
 
 *A Bitcoin Bloomberg Terminal but Worse*
