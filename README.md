@@ -3,6 +3,7 @@
 
 
 *A Bitcoin Bloomberg Terminal but Worse*
+
 A handy application for fetching information regarding Bitcoin using the Binance API.
 ## Disclaimer
 
