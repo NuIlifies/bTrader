@@ -6,6 +6,9 @@ cmdList = {
     "config":"self.configure()"  
 }
 
+config = ConfigParser()
+config.read('../config.cfg')
+
 class gui:
 
     def __init__(self, master):
@@ -57,9 +60,12 @@ class gui:
             #make arguments separate list
             if len(command) > 1:
                 for i in range(len(command)):
-                    self.args.append(command[i])
+                    #If the current wordi s the actual command word i.e. "config" then don't include it in the araguments list
+                    if i == 0:
+                        pass
+                    else:
+                        self.args.append(command[i])
                 
-                print(self.args)
 
 
             #If the first item in the list (the main command) exists in the dictionary
