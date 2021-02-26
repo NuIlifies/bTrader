@@ -7,7 +7,7 @@ cmdList = {
 }
 
 config = ConfigParser()
-config.read('../config.cfg')
+config.read('../config.ini')
 
 class gui:
 
@@ -75,7 +75,15 @@ class gui:
                 exec(cmdList[command[0]])
 
     def configure(self):
-        pass
+        if self.args[0] == 'write':
+            pass
+        elif self.args[0] == 'read':
+            pass
+        else:
+            self.invalidCommandArgument(self.args)
+    
+    def invalidCommandArgument(self, arg):
+        self.out("Invalid argument(s) '{}'".format(str(arg)), 1)
         
 
         
